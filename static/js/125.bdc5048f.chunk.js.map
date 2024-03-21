@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/125.bdc5048f.chunk.js","mappings":"+IAMA,UAJiB,WACf,OAAOA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,YACd,C","sources":["components/Features/Features.jsx"],"sourcesContent":["import React from 'react';\n\nconst Features = () => {\n  return <div>Features</div>;\n};\n\nexport default Features;\n"],"names":["_jsx","children"],"sourceRoot":""}
