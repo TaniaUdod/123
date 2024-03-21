@@ -1,0 +1,1 @@
+{"version":3,"file":"static/js/348.00061666.chunk.js","mappings":"+IAMA,UAJgB,WACd,OAAOA,EAAAA,EAAAA,KAAA,OAAAC,SAAK,WACd,C","sources":["pages/Campers/Campers.jsx"],"sourcesContent":["import React from 'react';\n\nconst Campers = () => {\n  return <div>Campers</div>;\n};\n\nexport default Campers;\n"],"names":["_jsx","children"],"sourceRoot":""}
