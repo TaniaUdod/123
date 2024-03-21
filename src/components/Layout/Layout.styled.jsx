@@ -4,11 +4,11 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: 0 15px;
   margin: 0 auto;
-  max-width: 80%;
+  max-width: 100%;
 `;
 
 export const Header = styled.header`
-  margin: 20px 0;
+  margin: 15px 0;
   border-bottom: 1px solid #070707;
 `;
 

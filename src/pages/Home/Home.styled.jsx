@@ -5,7 +5,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 48px;
+  font-size: 44px;
   margin-bottom: 20px;
 `;
 
@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 60%;
+  width: 50%;
   border-radius: 8px;
 `;
 

@@ -9,11 +9,14 @@ const Home = () => {
       <Wrapper>
         <Image src={camper} alt="camper" />
         <Text>
-          Discover our <Link to="/catalog">Campers models</Link> and find your
-          travel home which ticks all of the boxes and makes your travel dreams
-          come true. We offer a diverse selection of campervans and motorhomes
-          from renowned brands like El Monte, Road Bear, and Mavericks, and many
-          more.
+          Discover our{' '}
+          <Link to="/catalog" style={{ color: '#e44848', fontWeight: 'bold' }}>
+            Campers models
+          </Link>{' '}
+          and find your travel home which ticks all of the boxes and makes your
+          travel dreams come true. We offer a diverse selection of campervans
+          and motorhomes from renowned brands like El Monte, Road Bear, and
+          Mavericks, and many more.
         </Text>
       </Wrapper>
     </Container>
