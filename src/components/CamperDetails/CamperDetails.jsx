@@ -3,17 +3,19 @@ import sprite from '../../images/sprite.svg';
 import {
   AdvertsWrap,
   Description,
+  ImgList,
+  MainWrap,
   Price,
   RatingWrap,
-  Title,
-  ImgList,
   Tabs,
   TabButton,
-  TabContent,
+  Title,
 } from './CamperDetails.styled';
+import Features from 'components/Features/Features';
+import Reviews from 'components/Reviews/Reviews';
 
 const CamperDetails = ({ advert }) => {
-  const [activeTab, setActiveTab] = useState('Features');
+  const [activeTab, setActiveTab] = useState('');
 
   return (
     <AdvertsWrap>
@@ -37,65 +39,40 @@ const CamperDetails = ({ advert }) => {
 
       <Price>€{advert.price.toFixed(2)}</Price>
 
-      <ImgList>
-        {advert.gallery.length > 0 &&
-          advert.gallery.map(link => (
-            <li key={`${advert._id}`}>
-              <img src={link} alt={advert.name} />
-            </li>
-          ))}
-      </ImgList>
+      <MainWrap>
+        <ImgList>
+          {advert.gallery.length > 0 &&
+            advert.gallery.map(link => (
+              <li key={link}>
+                <img src={link} alt={advert.name} />
+              </li>
+            ))}
+        </ImgList>
 
-      <Description>{advert.description}</Description>
+        <Description>{advert.description}</Description>
+      </MainWrap>
 
       <Tabs>
         <TabButton
-          onClick={() => setActiveTab('Features')}
-          isActive={activeTab === 'Features'}
+          type="button"
+          onClick={() => setActiveTab('features')}
+          className={activeTab === 'features' ? 'active' : ''}
         >
           Features
         </TabButton>
         <TabButton
-          onClick={() => setActiveTab('Reviews')}
-          isActive={activeTab === 'Reviews'}
+          type="button"
+          onClick={() => setActiveTab('reviews')}
+          className={activeTab === 'reviews' ? 'active' : ''}
         >
           Reviews
         </TabButton>
+        <hr />
       </Tabs>
 
-      <TabContent>
-        {activeTab === 'Features' && (
-          <div>
-            {/* Features content here */}
-            <h3>Features</h3>
-            <ul>
-              <li>Adults: {advert.adults}</li>
-              <li>Transmission: {advert.transmission}</li>
-              <li>Engine: {advert.engine}</li>
-              {advert.kitchen >= 1 && <li>Kitchen</li>}
-              <li>Beds: {advert.beds}</li>
-              {advert.airConditioner >= 1 && <li>AC</li>}
-            </ul>
-          </div>
-        )}
-
-        {activeTab === 'Reviews' && (
-          <div>
-            {/* Reviews content here */}
-            <h3>Reviews</h3>
-            <ul>
-              {advert.reviews.map(review => (
-                <li key={`${advert._id}`}>
-                  <p>{review.text}</p>
-                  <p>
-                    <strong>{review.author}</strong> - {review.rating} stars
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </TabContent>
+      {activeTab === 'features' && <Features advert={advert} />}
+      {activeTab === 'reviews' && <Reviews advert={advert} />}
+      {/* {activeTab === 'features' ? <Features /> : <Reviews />} */}
     </AdvertsWrap>
   );
 };

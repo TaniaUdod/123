@@ -22,6 +22,7 @@ const CampersList = ({ advert }) => {
 
   const openModal = () => {
     setIsModalOpen(true);
+    document.body.style.overflow = 'hidden';
   };
 
   const closeModal = () => {

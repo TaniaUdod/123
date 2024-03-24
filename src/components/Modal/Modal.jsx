@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import sprite from '../../images/sprite.svg';
 import { CloseButton, ModalContent, ModalOverlay } from './Modal.styled';
 
@@ -10,6 +11,7 @@ const Modal = ({ onClose, children }) => {
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
       onClose();
+      document.body.style.overflow = 'visible';
     }
   };
 
@@ -27,7 +29,7 @@ const Modal = ({ onClose, children }) => {
     };
   }, [onClose]);
 
-  return (
+  return createPortal(
     <ModalOverlay onClick={handleBackdropClick}>
       <ModalContent>
         <CloseButton onClick={handleClose}>
@@ -35,7 +37,8 @@ const Modal = ({ onClose, children }) => {
         </CloseButton>
         {children}
       </ModalContent>
-    </ModalOverlay>
+    </ModalOverlay>,
+    document.getElementById('modal-root')
   );
 };
 

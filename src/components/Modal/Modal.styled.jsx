@@ -21,10 +21,20 @@ export const ModalContent = styled.div`
   padding: 40px;
   display: inline-flex;
   flex-direction: column;
-  width: 902px;
-  height: 85vh;
+  width: 90vh;
+  max-width: 902px;
+  max-height: 90vh;
   gap: 24px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 50px;
+    margin: 25px 0;
+  }
 `;
 
 export const CloseButton = styled.svg`

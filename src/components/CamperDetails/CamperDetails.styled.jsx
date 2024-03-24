@@ -31,6 +31,20 @@ export const Price = styled.p`
   margin-bottom: 24px;
 `;
 
+export const MainWrap = styled.div`
+  overflow-y: auto;
+  max-height: 474px;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 50px;
+    margin: 15px 0;
+  }
+`;
+
 export const ImgList = styled.ul`
   display: flex;
   flex-direction: row;
@@ -61,22 +75,37 @@ export const Description = styled.p`
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  margin-bottom: 44px;
 `;
 
 export const Tabs = styled.div`
-  display: flex;
-  gap: 10px;
-  margin-top: 20px;
+  margin-top: 44px;
+  position: relative;
+
+  & hr {
+    display: block;
+    background-color: rgba(16, 24, 40, 0.2);
+    margin-top: 24px;
+    opacity: 0.2;
+  }
 `;
 
 export const TabButton = styled.button`
-  padding: 10px 15px;
-  background-color: ${({ isActive }) => (isActive ? '#ccc' : '#fff')};
-  border: 1px solid #ccc;
+  margin-right: 40px;
+  color: #101828;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
   cursor: pointer;
-`;
 
-export const TabContent = styled.div`
-  margin-top: 20px;
+  &.active::after {
+    position: absolute;
+    top: 45.5px;
+    display: block;
+    content: '';
+    width: 85px;
+    height: 4px;
+    background-color: #e44848;
+  }
 `;
