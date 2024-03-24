@@ -1,25 +1,25 @@
 {
   "files": {
     "main.css": "/rental-campers/static/css/main.34190578.css",
-    "main.js": "/rental-campers/static/js/main.6cd2429f.js",
+    "main.js": "/rental-campers/static/js/main.a384b531.js",
     "static/js/741.8147c3cf.chunk.js": "/rental-campers/static/js/741.8147c3cf.chunk.js",
-    "static/js/891.99e1995a.chunk.js": "/rental-campers/static/js/891.99e1995a.chunk.js",
+    "static/js/483.e82b9769.chunk.js": "/rental-campers/static/js/483.e82b9769.chunk.js",
     "static/js/733.7c6aab71.chunk.js": "/rental-campers/static/js/733.7c6aab71.chunk.js",
     "static/css/546.0d0623fe.chunk.css": "/rental-campers/static/css/546.0d0623fe.chunk.css",
     "static/js/546.8bfc730f.chunk.js": "/rental-campers/static/js/546.8bfc730f.chunk.js",
     "static/media/camper.jpg": "/rental-campers/static/media/camper.c162191dc9be48f2c29b.jpg",
-    "static/media/sprite.svg": "/rental-campers/static/media/sprite.870047835135e08214912d9c769e4c95.svg",
+    "static/media/sprite.svg": "/rental-campers/static/media/sprite.d0f6f7eeacbc0a9b680936ba241d8973.svg",
     "index.html": "/rental-campers/index.html",
     "main.34190578.css.map": "/rental-campers/static/css/main.34190578.css.map",
-    "main.6cd2429f.js.map": "/rental-campers/static/js/main.6cd2429f.js.map",
+    "main.a384b531.js.map": "/rental-campers/static/js/main.a384b531.js.map",
     "741.8147c3cf.chunk.js.map": "/rental-campers/static/js/741.8147c3cf.chunk.js.map",
-    "891.99e1995a.chunk.js.map": "/rental-campers/static/js/891.99e1995a.chunk.js.map",
+    "483.e82b9769.chunk.js.map": "/rental-campers/static/js/483.e82b9769.chunk.js.map",
     "733.7c6aab71.chunk.js.map": "/rental-campers/static/js/733.7c6aab71.chunk.js.map",
     "546.0d0623fe.chunk.css.map": "/rental-campers/static/css/546.0d0623fe.chunk.css.map",
     "546.8bfc730f.chunk.js.map": "/rental-campers/static/js/546.8bfc730f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.34190578.css",
-    "static/js/main.6cd2429f.js"
+    "static/js/main.a384b531.js"
   ]
 }
