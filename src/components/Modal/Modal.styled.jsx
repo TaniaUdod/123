@@ -21,9 +21,10 @@ export const ModalContent = styled.div`
   padding: 40px;
   display: inline-flex;
   flex-direction: column;
-  width: 90vh;
-  max-width: 902px;
-  max-height: 90vh;
+  /* width: 100%;
+  max-width: 902px; */
+  width: 982px;
+  max-height: 85vh;
   gap: 24px;
   overflow-y: auto;
 

@@ -12,8 +12,8 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   adverts: [],
-  // selectedAdvert: null,
   favorites: [],
+  bookings: [],
   isLoading: false,
   error: null,
 };
@@ -30,6 +30,9 @@ export const advertsSlice = createSlice({
         item => item._id !== action.payload
       );
     },
+    bookCamper: (state, action) => {
+      state.bookings.push(action.payload);
+    },
   },
   extraReducers: builder => {
     builder
@@ -40,17 +43,9 @@ export const advertsSlice = createSlice({
         state.adverts = action.payload;
       })
       .addCase(getAdverts.rejected, handleRejected);
-
-    // .addCase(getAdvertById.pending, handlePending)
-    // .addCase(getAdvertById.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   state.selectedAdvert = action.payload;
-    // })
-    // .addCase(getAdvertById.rejected, handleRejected);
   },
 });
 
-export const { addFavorite, removeFavorite } = advertsSlice.actions;
+export const { addFavorite, removeFavorite, bookCamper } = advertsSlice.actions;
 
 export const advertsReducer = advertsSlice.reducer;

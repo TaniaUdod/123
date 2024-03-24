@@ -14,6 +14,7 @@ import {
 } from './CamperDetails.styled';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Reviews/Reviews';
+import BookingForm from 'components/BookingForm/BookingForm';
 
 const CamperDetails = ({ advert }) => {
   const [activeTab, setActiveTab] = useState('');
@@ -74,7 +75,7 @@ const CamperDetails = ({ advert }) => {
       {activeTab === 'features' && (
         <TabsContent>
           <Features advert={advert} />
-          <Reviews advert={advert} />
+          <BookingForm />
         </TabsContent>
       )}
       {activeTab === 'reviews' && (
