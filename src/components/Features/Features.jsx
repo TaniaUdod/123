@@ -210,7 +210,7 @@ const Features = ({ advert }) => {
         <DetailsList>
           <li>Consumption</li>
           <li>
-            {advert.consumption.replace(/(\d+\.?\d*)([a-zA-Z\/]*)$/, '$1 $2')}
+            {advert.consumption.replace(/(\d+\.?\d*)([a-zA-Z/]*$)/, '$1 $2')}
           </li>
         </DetailsList>
       </div>
