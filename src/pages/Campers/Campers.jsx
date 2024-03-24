@@ -27,12 +27,10 @@ const Campers = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const adverts = useSelector(selectAdverts);
-  // console.log(adverts);
 
   const handleSearch = selectedFilters => {
     setFilters(selectedFilters);
     setCurrentPage(1);
-    // console.log('Selected Filters:', selectedFilters);
   };
 
   useEffect(() => {

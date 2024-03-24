@@ -23,10 +23,6 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
   const [validLocation, setValidLocation] = useState(true);
 
   const availableLocations = [
-    // {
-    //   value: '',
-    //   text: '',
-    // },
     'Kyiv',
     'Lviv',
     'Odesa',

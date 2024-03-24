@@ -25,7 +25,7 @@ const CamperDetails = ({ advert }) => {
 
       <RatingWrap>
         <p style={{ textDecorationLine: 'underline' }}>
-          <svg width="16" height="16" fill="none" stroke="currentColor">
+          <svg width="16" height="16" fill="#FFC531">
             <use href={`${sprite}#icon-star`} />
           </svg>
           {advert.rating} ({advert.reviews.length} Reviews)
@@ -80,11 +80,10 @@ const CamperDetails = ({ advert }) => {
       )}
       {activeTab === 'reviews' && (
         <TabsContent>
-          <Features advert={advert} />
           <Reviews advert={advert} />
+          <BookingForm />
         </TabsContent>
       )}
-      {/* {activeTab === 'features' ? <Features /> : <Reviews />} */}
     </AdvertsWrap>
   );
 };
