@@ -85,6 +85,7 @@ export const Tabs = styled.div`
     display: block;
     background-color: rgba(16, 24, 40, 0.2);
     margin-top: 24px;
+    margin-bottom: 0;
     opacity: 0.2;
   }
 `;
@@ -108,4 +109,10 @@ export const TabButton = styled.button`
     height: 4px;
     background-color: #e44848;
   }
+`;
+
+export const TabsContent = styled.div`
+  display: flex;
+  gap: 24px;
+  margin-top: 44px;
 `;

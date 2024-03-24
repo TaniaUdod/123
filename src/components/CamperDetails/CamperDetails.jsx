@@ -10,6 +10,7 @@ import {
   Tabs,
   TabButton,
   Title,
+  TabsContent,
 } from './CamperDetails.styled';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Reviews/Reviews';
@@ -70,8 +71,18 @@ const CamperDetails = ({ advert }) => {
         <hr />
       </Tabs>
 
-      {activeTab === 'features' && <Features advert={advert} />}
-      {activeTab === 'reviews' && <Reviews advert={advert} />}
+      {activeTab === 'features' && (
+        <TabsContent>
+          <Features advert={advert} />
+          <Reviews advert={advert} />
+        </TabsContent>
+      )}
+      {activeTab === 'reviews' && (
+        <TabsContent>
+          <Features advert={advert} />
+          <Reviews advert={advert} />
+        </TabsContent>
+      )}
       {/* {activeTab === 'features' ? <Features /> : <Reviews />} */}
     </AdvertsWrap>
   );

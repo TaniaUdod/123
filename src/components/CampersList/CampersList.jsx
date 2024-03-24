@@ -96,7 +96,7 @@ const CampersList = ({ advert }) => {
             <svg width="20" height="20" fill="none" stroke="currentColor">
               <use href={`${sprite}#icon-beds`} />
             </svg>
-            {advert.beds} beds
+            {advert.details.beds} beds
           </CategoriesItem>
 
           {advert.details.airConditioner >= 1 && (
