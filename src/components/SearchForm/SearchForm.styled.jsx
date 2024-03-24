@@ -4,6 +4,7 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 360px;
+
   & > :nth-child(4) {
     margin-top: 32px;
   }
@@ -23,17 +24,17 @@ export const LocationLabel = styled.label`
     width: 18px;
     height: 20px;
     left: 18px;
-    top: 42px;
+    top: 45px;
     fill: none;
     stroke: #101828;
   }
 
   input {
-    padding: 15px;
+    padding: 18px;
     padding-left: 44px;
-    width: 85%;
     background-color: #f7f7f7;
     color: #101828;
+    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.25;
@@ -93,6 +94,7 @@ export const WrapContent = styled.div`
     position: absolute;
     opacity: 0;
     cursor: pointer;
+    transition: border 150ms linear;
 
     &:checked + div {
       border: 1px solid #e44848;
@@ -130,6 +132,7 @@ export const SearchButton = styled.button`
   cursor: pointer;
   margin-top: 64px;
   margin-bottom: 24px;
+  transition: background-color 150ms linear;
 
   &:hover {
     background-color: #d84343;

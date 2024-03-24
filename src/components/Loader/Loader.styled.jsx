@@ -10,4 +10,5 @@ export const LoaderContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.6);
+  z-index: 5;
 `;

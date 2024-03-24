@@ -23,6 +23,10 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
   const [validLocation, setValidLocation] = useState(true);
 
   const availableLocations = [
+    // {
+    //   value: '',
+    //   text: '',
+    // },
     'Kyiv',
     'Lviv',
     'Odesa',
@@ -34,12 +38,12 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
 
   const filtersVehicleEquipment = [
     {
-      value: 'ac',
+      value: 'airConditioner',
       icon: 'icon-AC',
       text: 'AC',
     },
     {
-      value: 'automatic',
+      value: 'transmission',
       icon: 'icon-automatic',
       text: 'Automatic',
     },
@@ -54,7 +58,7 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
       text: 'TV',
     },
     {
-      value: 'shower/wc',
+      value: 'shower',
       icon: 'icon-shower',
       text: 'Shower/WC',
     },
