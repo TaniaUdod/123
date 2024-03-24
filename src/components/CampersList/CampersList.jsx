@@ -2,9 +2,8 @@ import { useState } from 'react';
 import sprite from '../../images/sprite.svg';
 
 import Modal from 'components/Modal/Modal';
+import CamperDetails from 'components/CamperDetails/CamperDetails';
 import {
-  AdvertsItem,
-  AdvertsList,
   AdvertsWrap,
   Button,
   CategoriesItem,
@@ -18,7 +17,7 @@ import {
   TitleWrap,
 } from './CampersList.styled';
 
-const CampersList = ({ adverts }) => {
+const CampersList = ({ advert }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -30,113 +29,94 @@ const CampersList = ({ adverts }) => {
   };
 
   return (
-    <AdvertsList>
-      {adverts.map(
-        ({
-          _id,
-          gallery,
-          name,
-          price,
-          rating,
-          reviews,
-          location,
-          description,
-          adults,
-          transmission,
-          engine,
-          details: { kitchen, beds, airConditioner },
-        }) => (
-          <AdvertsItem key={_id}>
-            <Img src={gallery[0]} alt={name} />
-            <AdvertsWrap>
-              <TitleWrap>
-                <Title>{name}</Title>
-                <PriceWrap>
-                  <Price>€{price.toFixed(2)}</Price>
-                  <svg width="24" height="24" fill="none" stroke="currentColor">
-                    <use href={`${sprite}#icon-heart`} />
-                  </svg>
-                </PriceWrap>
-              </TitleWrap>
+    <>
+      <Img src={advert.gallery[0]} alt={advert.name} />
+      <AdvertsWrap>
+        <TitleWrap>
+          <Title>{advert.name}</Title>
+          <PriceWrap>
+            <Price>€{advert.price.toFixed(2)}</Price>
+            <svg width="24" height="24" fill="none" stroke="currentColor">
+              <use href={`${sprite}#icon-heart`} />
+            </svg>
+          </PriceWrap>
+        </TitleWrap>
 
-              <RatingWrap>
-                <p>
-                  <svg width="16" height="16" fill="none" stroke="currentColor">
-                    <use href={`${sprite}#icon-star`} />
-                  </svg>
-                  {rating} ({reviews.length} Reviews)
-                </p>
+        <RatingWrap>
+          <p style={{ textDecorationLine: 'underline' }}>
+            <svg width="16" height="16" fill="none" stroke="currentColor">
+              <use href={`${sprite}#icon-star`} />
+            </svg>
+            {advert.rating} ({advert.reviews.length} Reviews)
+          </p>
 
-                <p>
-                  <svg width="16" height="16" fill="none" stroke="currentColor">
-                    <use href={`${sprite}#icon-map-pin`} />
-                  </svg>
-                  {location.split(',').reverse().join(', ')}
-                </p>
-              </RatingWrap>
+          <p>
+            <svg width="16" height="16" fill="none" stroke="currentColor">
+              <use href={`${sprite}#icon-map-pin`} />
+            </svg>
+            {advert.location.split(',').reverse().join(', ')}
+          </p>
+        </RatingWrap>
 
-              <Description>{description}</Description>
+        <Description>{advert.description}</Description>
 
-              <CategoriesList>
-                <CategoriesItem>
-                  <svg width="20" height="20">
-                    <use href={`${sprite}#icon-adults`} />
-                  </svg>
-                  {adults} adults
-                </CategoriesItem>
-                <CategoriesItem style={{ textTransform: 'capitalize' }}>
-                  <svg width="20" height="20" fill="none" stroke="currentColor">
-                    <use href={`${sprite}#icon-automatic`} />
-                  </svg>
-                  {transmission}
-                </CategoriesItem>
-                <CategoriesItem style={{ textTransform: 'capitalize' }}>
-                  <svg width="20" height="20">
-                    <use href={`${sprite}#icon-petrol`} />
-                  </svg>
-                  {engine}
-                </CategoriesItem>
-                {kitchen >= 1 && (
-                  <CategoriesItem>
-                    <svg
-                      width="20"
-                      height="20"
-                      fill="none"
-                      stroke="currentColor"
-                    >
-                      <use href={`${sprite}#icon-kitchen`} />
-                    </svg>
-                    Kitchen
-                  </CategoriesItem>
-                )}
-                <CategoriesItem>
-                  <svg width="20" height="20" fill="none" stroke="currentColor">
-                    <use href={`${sprite}#icon-beds`} />
-                  </svg>
-                  {beds} beds
-                </CategoriesItem>
-                {airConditioner >= 1 && (
-                  <CategoriesItem>
-                    <svg width="20" height="20" fill="none">
-                      <use href={`${sprite}#icon-AC`} />
-                    </svg>
-                    AC
-                  </CategoriesItem>
-                )}
-              </CategoriesList>
+        <CategoriesList>
+          <CategoriesItem>
+            <svg width="20" height="20">
+              <use href={`${sprite}#icon-adults`} />
+            </svg>
+            {advert.adults} adults
+          </CategoriesItem>
 
-              <Button onClick={openModal}>Show more</Button>
-            </AdvertsWrap>
-          </AdvertsItem>
-        )
-      )}
+          <CategoriesItem style={{ textTransform: 'capitalize' }}>
+            <svg width="20" height="20" fill="none" stroke="currentColor">
+              <use href={`${sprite}#icon-automatic`} />
+            </svg>
+            {advert.transmission}
+          </CategoriesItem>
+
+          <CategoriesItem style={{ textTransform: 'capitalize' }}>
+            <svg width="20" height="20">
+              <use href={`${sprite}#icon-petrol`} />
+            </svg>
+            {advert.engine}
+          </CategoriesItem>
+
+          {advert.details.kitchen >= 1 && (
+            <CategoriesItem>
+              <svg width="20" height="20" fill="none" stroke="currentColor">
+                <use href={`${sprite}#icon-kitchen`} />
+              </svg>
+              Kitchen
+            </CategoriesItem>
+          )}
+
+          <CategoriesItem>
+            <svg width="20" height="20" fill="none" stroke="currentColor">
+              <use href={`${sprite}#icon-beds`} />
+            </svg>
+            {advert.beds} beds
+          </CategoriesItem>
+
+          {advert.details.airConditioner >= 1 && (
+            <CategoriesItem>
+              <svg width="20" height="20" fill="none">
+                <use href={`${sprite}#icon-AC`} />
+              </svg>
+              AC
+            </CategoriesItem>
+          )}
+        </CategoriesList>
+
+        <Button onClick={openModal}>Show more</Button>
+      </AdvertsWrap>
 
       {isModalOpen && (
         <Modal isOpen={isModalOpen} onClose={closeModal}>
-          <p>details</p>
+          <CamperDetails advert={advert} />
         </Modal>
       )}
-    </AdvertsList>
+    </>
   );
 };
 

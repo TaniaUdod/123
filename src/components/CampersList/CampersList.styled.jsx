@@ -1,26 +1,9 @@
 import styled from 'styled-components';
 
-export const AdvertsList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-`;
-
-export const AdvertsItem = styled.li`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border-radius: 20px;
-  border: 1px solid rgba(16, 24, 40, 0.2);
-  padding: 24px;
-`;
-
 export const Img = styled.img`
   width: 290px;
   height: 310px;
   border-radius: 10px;
-
   object-fit: cover;
 `;
 
@@ -67,6 +50,11 @@ export const RatingWrap = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 16px;
+
+  p {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 export const Description = styled.p`

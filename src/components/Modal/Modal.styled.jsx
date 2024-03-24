@@ -21,9 +21,10 @@ export const ModalContent = styled.div`
   padding: 40px;
   display: inline-flex;
   flex-direction: column;
-  height: 720px;
-  width: 982px;
+  width: 902px;
+  height: 85vh;
   gap: 24px;
+  overflow-y: auto;
 `;
 
 export const CloseButton = styled.svg`

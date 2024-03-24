@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { animateScroll } from 'react-scroll';
 import {
   selectAdverts,
   selectError,
@@ -9,8 +10,13 @@ import { getAdverts } from '../../redux/operations';
 import SearchForm from 'components/SearchForm/SearchForm';
 import CampersList from 'components/CampersList/CampersList';
 import Loader from 'components/Loader/Loader';
-import { Button, Catalog, Container } from './Campers.styled';
-import { animateScroll } from 'react-scroll';
+import {
+  AdvertsItem,
+  AdvertsList,
+  Button,
+  Catalog,
+  Container,
+} from './Campers.styled';
 
 const Campers = () => {
   const dispatch = useDispatch();
@@ -21,12 +27,12 @@ const Campers = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const adverts = useSelector(selectAdverts);
-  console.log(adverts);
+  // console.log(adverts);
 
   const handleSearch = selectedFilters => {
     setFilters(selectedFilters);
     setCurrentPage(1);
-    console.log('Selected Filters:', selectedFilters);
+    // console.log('Selected Filters:', selectedFilters);
   };
 
   useEffect(() => {
@@ -54,12 +60,16 @@ const Campers = () => {
       <SearchForm handleSearch={handleSearch} filters={filters} />
 
       <Catalog>
-        <CampersList adverts={adverts} />
+        <AdvertsList>
+          {adverts.map(advert => (
+            <AdvertsItem key={advert._id}>
+              <CampersList advert={advert} />
+            </AdvertsItem>
+          ))}
+        </AdvertsList>
 
         {isLoadMore && !isLoading && (
-          <Button className="load-more-btn" onClick={loadMore}>
-            Load more
-          </Button>
+          <Button onClick={loadMore}>Load more</Button>
         )}
       </Catalog>
     </Container>

@@ -14,6 +14,22 @@ export const Catalog = styled.div`
   gap: 50px;
 `;
 
+export const AdvertsList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+export const AdvertsItem = styled.li`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 24, 40, 0.2);
+  padding: 24px;
+`;
+
 export const Button = styled.button`
   padding: 16px 32px;
   border-radius: 200px;
