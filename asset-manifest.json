@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "/rental-campers/static/css/main.929c2dc0.css",
-    "main.js": "/rental-campers/static/js/main.4348f130.js",
+    "main.css": "/rental-campers/static/css/main.34190578.css",
+    "main.js": "/rental-campers/static/js/main.6cd2429f.js",
     "static/js/741.8147c3cf.chunk.js": "/rental-campers/static/js/741.8147c3cf.chunk.js",
-    "static/js/55.a0d25ba9.chunk.js": "/rental-campers/static/js/55.a0d25ba9.chunk.js",
+    "static/js/891.99e1995a.chunk.js": "/rental-campers/static/js/891.99e1995a.chunk.js",
     "static/js/733.7c6aab71.chunk.js": "/rental-campers/static/js/733.7c6aab71.chunk.js",
-    "static/js/667.5f2d2150.chunk.js": "/rental-campers/static/js/667.5f2d2150.chunk.js",
+    "static/css/546.0d0623fe.chunk.css": "/rental-campers/static/css/546.0d0623fe.chunk.css",
+    "static/js/546.8bfc730f.chunk.js": "/rental-campers/static/js/546.8bfc730f.chunk.js",
     "static/media/camper.jpg": "/rental-campers/static/media/camper.c162191dc9be48f2c29b.jpg",
     "static/media/sprite.svg": "/rental-campers/static/media/sprite.870047835135e08214912d9c769e4c95.svg",
     "index.html": "/rental-campers/index.html",
-    "main.929c2dc0.css.map": "/rental-campers/static/css/main.929c2dc0.css.map",
-    "main.4348f130.js.map": "/rental-campers/static/js/main.4348f130.js.map",
+    "main.34190578.css.map": "/rental-campers/static/css/main.34190578.css.map",
+    "main.6cd2429f.js.map": "/rental-campers/static/js/main.6cd2429f.js.map",
     "741.8147c3cf.chunk.js.map": "/rental-campers/static/js/741.8147c3cf.chunk.js.map",
-    "55.a0d25ba9.chunk.js.map": "/rental-campers/static/js/55.a0d25ba9.chunk.js.map",
+    "891.99e1995a.chunk.js.map": "/rental-campers/static/js/891.99e1995a.chunk.js.map",
     "733.7c6aab71.chunk.js.map": "/rental-campers/static/js/733.7c6aab71.chunk.js.map",
-    "667.5f2d2150.chunk.js.map": "/rental-campers/static/js/667.5f2d2150.chunk.js.map"
+    "546.0d0623fe.chunk.css.map": "/rental-campers/static/css/546.0d0623fe.chunk.css.map",
+    "546.8bfc730f.chunk.js.map": "/rental-campers/static/js/546.8bfc730f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.929c2dc0.css",
-    "static/js/main.4348f130.js"
+    "static/css/main.34190578.css",
+    "static/js/main.6cd2429f.js"
   ]
 }
