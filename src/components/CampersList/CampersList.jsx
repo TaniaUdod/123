@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavorites } from '../../redux/selectors';
+import { addFavorite, removeFavorite } from '../../redux/slice';
 import sprite from '../../images/sprite.svg';
-
 import Modal from 'components/Modal/Modal';
 import CamperDetails from 'components/CamperDetails/CamperDetails';
 import {
@@ -9,6 +11,7 @@ import {
   CategoriesItem,
   CategoriesList,
   Description,
+  HeartButton,
   Img,
   Price,
   PriceWrap,
@@ -19,6 +22,18 @@ import {
 
 const CampersList = ({ advert }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const favorites = useSelector(selectFavorites);
+  const favoriteItem = favorites.findIndex(item => item._id === advert._id);
+
+  const toggleFavorite = () => {
+    if (favoriteItem === -1) {
+      dispatch(addFavorite(advert));
+      return;
+    }
+    dispatch(removeFavorite(advert._id));
+  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -37,9 +52,17 @@ const CampersList = ({ advert }) => {
           <Title>{advert.name}</Title>
           <PriceWrap>
             <Price>€{advert.price.toFixed(2)}</Price>
-            <svg width="24" height="24" fill="none" stroke="currentColor">
-              <use href={`${sprite}#icon-heart`} />
-            </svg>
+            <HeartButton onClick={toggleFavorite}>
+              {favoriteItem === -1 ? (
+                <svg width="24" height="24" fill="none" stroke="currentColor">
+                  <use href={`${sprite}#icon-heart`} />
+                </svg>
+              ) : (
+                <svg width="24" height="24" fill="#e44848" stroke="#e44848">
+                  <use href={`${sprite}#icon-heart`} />
+                </svg>
+              )}
+            </HeartButton>
           </PriceWrap>
         </TitleWrap>
 

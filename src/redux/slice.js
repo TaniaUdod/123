@@ -12,7 +12,8 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   adverts: [],
-  favorites: [],
+  favorites:
+    JSON.parse(localStorage.getItem('persist:favorites'))?.favorites ?? [],
   bookings: [],
   isLoading: false,
   error: null,
@@ -27,7 +28,7 @@ export const advertsSlice = createSlice({
     },
     removeFavorite: (state, action) => {
       state.favorites = state.favorites.filter(
-        item => item._id !== action.payload
+        advert => advert._id !== action.payload
       );
     },
     bookCamper: (state, action) => {

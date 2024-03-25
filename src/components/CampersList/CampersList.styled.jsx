@@ -104,3 +104,18 @@ export const Button = styled.button`
     background-color: #d84343;
   }
 `;
+
+export const HeartButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  transition: transform 150ms linear;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.3);
+  }
+`;
