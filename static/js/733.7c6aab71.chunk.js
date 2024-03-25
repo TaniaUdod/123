@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkrental_campers=self.webpackChunkrental_campers||[]).push([[733],{3733:function(e,r,n){n.r(r);n(2791);var a=n(3329);r.default=function(){return(0,a.jsx)("div",{children:"Favorites"})}}}]);
-//# sourceMappingURL=733.7c6aab71.chunk.js.map
