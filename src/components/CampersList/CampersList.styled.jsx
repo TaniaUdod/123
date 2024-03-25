@@ -112,10 +112,15 @@ export const HeartButton = styled.button`
   border: none;
   outline: none;
   background-color: transparent;
-  transition: transform 150ms linear;
+  transition: transform 150ms linear, stroke 150ms linear;
 
   &:hover,
   &:focus {
     transform: scale(1.3);
+  }
+
+  svg:hover,
+  svg:focus {
+    stroke: #d84343;
   }
 `;

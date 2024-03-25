@@ -19,6 +19,8 @@ import {
   Title,
   TitleWrap,
 } from './CampersList.styled';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CampersList = ({ advert }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,6 +32,10 @@ const CampersList = ({ advert }) => {
   const toggleFavorite = () => {
     if (favoriteItem === -1) {
       dispatch(addFavorite(advert));
+      toast.success('Successfully added to Favorites!', {
+        theme: 'colored',
+        autoClose: 2500,
+      });
       return;
     }
     dispatch(removeFavorite(advert._id));
