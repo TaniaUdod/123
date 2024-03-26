@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const AdvertsWrap = styled.div`
   display: flex;
   flex-direction: column;
+  overflow: overlay;
 `;
 
 export const Title = styled.p`
@@ -32,16 +33,19 @@ export const Price = styled.p`
 `;
 
 export const MainWrap = styled.div`
+  padding-right: 16px;
+`;
+
+export const WrapOverlay = styled.div`
   overflow-y: auto;
-  max-height: 474px;
+  height: auto;
 
   &::-webkit-scrollbar {
-    width: 3px;
+    width: 8px;
   }
 
   &::-webkit-scrollbar-track {
     border-radius: 50px;
-    margin: 15px 0;
   }
 `;
 

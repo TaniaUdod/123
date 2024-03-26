@@ -8,6 +8,13 @@ export const Form = styled.form`
   & > :nth-child(4) {
     margin-top: 32px;
   }
+
+  hr {
+    background-color: rgba(16, 24, 40, 0.1);
+    display: block;
+    margin: 24px 0;
+    opacity: 0.2;
+  }
 `;
 
 export const LocationLabel = styled.label`
@@ -56,17 +63,14 @@ export const Text = styled.p`
   margin-bottom: 14px;
 `;
 
-export const FilterLabel = styled.label`
+export const Title = styled.h2`
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
   color: #101828;
 
-  hr {
-    background-color: rgba(16, 24, 40, 0.1);
-    display: block;
-    margin: 24px 0;
-    opacity: 0.2;
+  &:last-of-type {
+    margin-top: 32px;
   }
 `;
 
@@ -82,9 +86,8 @@ export const WrapContent = styled.div`
   height: 95px;
   align-items: center;
   justify-content: center;
-  width: calc((100% - 2 * 13px) / 3);
+  width: calc((100% - 2 * 10px) / 3);
   border-radius: 10px;
-  border: 1px solid rgba(16, 24, 40, 0.2);
   cursor: pointer;
 
   input {

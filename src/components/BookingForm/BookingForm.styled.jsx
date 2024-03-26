@@ -7,6 +7,7 @@ export const Form = styled.form`
   border-radius: 10px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   padding: 24px;
+  position: relative;
 `;
 
 export const Title = styled.p`
@@ -74,6 +75,8 @@ export const Input = styled.input`
 export const Error = styled.p`
   font-size: 12px;
   color: #e44848;
+  position: absolute;
+  left: 43px;
 `;
 
 export const Textarea = styled.textarea`
@@ -89,7 +92,6 @@ export const Textarea = styled.textarea`
   width: 100%;
   max-width: 400px;
   resize: none;
-  outline: none;
 `;
 
 export const Button = styled.button`

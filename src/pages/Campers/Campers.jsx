@@ -30,14 +30,20 @@ const Campers = () => {
 
   const handleSearch = selectedFilters => {
     setFilters(selectedFilters);
-    setCurrentPage(1);
+    // setCurrentPage(1);
   };
 
   useEffect(() => {
-    dispatch(getAdverts({ page: currentPage, limit: 4 })).then(() => {
-      setIsLoadMore(adverts.length === 4);
-    });
-  }, [dispatch, currentPage, adverts.length]);
+    dispatch(getAdverts({ page: currentPage, limit: 4 }));
+  }, [dispatch, currentPage]);
+
+  useEffect(() => {
+    if (adverts.length < 4 || adverts.length % 4 !== 0) {
+      setIsLoadMore(false);
+    } else {
+      setIsLoadMore(true);
+    }
+  }, [adverts]);
 
   const loadMore = () => {
     setCurrentPage(prev => prev + 1);

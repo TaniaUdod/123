@@ -4,7 +4,7 @@ import {
   Form,
   LocationLabel,
   Text,
-  FilterLabel,
+  Title,
   Wrap,
   WrapContent,
   Filterbutton,
@@ -142,53 +142,49 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
 
       <Text>Filters</Text>
 
-      <FilterLabel>
-        Vehicle equipment
-        <hr />
-        <Wrap>
-          {filtersVehicleEquipment.map(({ value, icon, text }) => (
-            <WrapContent key={value}>
-              <input
-                type="checkbox"
-                name="equipment"
-                value={value}
-                checked={filters.equipment.includes(value)}
-                onChange={handleCheckboxChange}
-              />
-              <Filterbutton>
-                <svg width="32" height="32" fill="none" stroke="currentColor">
-                  <use href={`${sprite}#${icon}`} />
-                </svg>
-                {text}
-              </Filterbutton>
-            </WrapContent>
-          ))}
-        </Wrap>
-      </FilterLabel>
+      <Title>Vehicle equipment</Title>
+      <hr />
+      <Wrap>
+        {filtersVehicleEquipment.map(({ value, icon, text }) => (
+          <WrapContent key={value}>
+            <input
+              type="checkbox"
+              name="equipment"
+              value={value}
+              checked={filters.equipment.includes(value)}
+              onChange={handleCheckboxChange}
+            />
+            <Filterbutton>
+              <svg width="32" height="32" fill="none" stroke="currentColor">
+                <use href={`${sprite}#${icon}`} />
+              </svg>
+              {text}
+            </Filterbutton>
+          </WrapContent>
+        ))}
+      </Wrap>
 
-      <FilterLabel>
-        Vehicle type
-        <hr />
-        <Wrap>
-          {filtersType.map(({ value, icon, text }) => (
-            <WrapContent key={value}>
-              <input
-                type="radio"
-                name="vehicleType"
-                value={value}
-                checked={filters.type === value}
-                onChange={e => handleFiltersChange('type', e.target.value)}
-              />
-              <Filterbutton>
-                <svg width="40" height="28" fill="none" stroke="currentColor">
-                  <use href={`${sprite}#${icon}`} />
-                </svg>
-                {text}
-              </Filterbutton>
-            </WrapContent>
-          ))}
-        </Wrap>
-      </FilterLabel>
+      <Title>Vehicle type</Title>
+      <hr />
+      <Wrap>
+        {filtersType.map(({ value, icon, text }) => (
+          <WrapContent key={value}>
+            <input
+              type="radio"
+              name="vehicleType"
+              value={value}
+              checked={filters.type === value}
+              onChange={e => handleFiltersChange('type', e.target.value)}
+            />
+            <Filterbutton>
+              <svg width="40" height="28" fill="none" stroke="currentColor">
+                <use href={`${sprite}#${icon}`} />
+              </svg>
+              {text}
+            </Filterbutton>
+          </WrapContent>
+        ))}
+      </Wrap>
       <SearchButton type="submit">Search</SearchButton>
     </Form>
   );

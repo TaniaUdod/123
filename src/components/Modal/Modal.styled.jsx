@@ -18,31 +18,25 @@ export const ModalContent = styled.div`
   z-index: 20;
   background-color: #ffffff;
   border-radius: 20px;
-  padding: 40px;
+  padding: 40px 16px 40px 40px;
   display: inline-flex;
   flex-direction: column;
   width: 982px;
-  max-height: 85vh;
+  max-height: 95vh;
   gap: 24px;
-  overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  &::-webkit-scrollbar-track {
-    border-radius: 50px;
-    margin: 25px 0;
-  }
 `;
 
-export const CloseButton = styled.svg`
+export const CloseButton = styled.button`
   position: absolute;
-  top: 40px;
-  right: 40px;
   width: 32px;
   height: 32px;
-  fill: none;
-  stroke: #101828;
   cursor: pointer;
+  right: 40px;
+
+  & svg {
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: #101828;
+  }
 `;

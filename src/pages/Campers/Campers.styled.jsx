@@ -28,6 +28,7 @@ export const AdvertsItem = styled.li`
   border-radius: 20px;
   border: 1px solid rgba(16, 24, 40, 0.2);
   padding: 24px;
+  width: 888px;
 `;
 
 export const Button = styled.button`

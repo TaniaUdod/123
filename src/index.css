@@ -58,10 +58,18 @@ button {
   cursor: pointer;
 }
 
-input {
+input,
+textarea {
   font-family: inherit;
 }
 
-input:focus {
+input:focus,
+textarea:focus {
   outline: none;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

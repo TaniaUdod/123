@@ -11,6 +11,7 @@ import {
   TabButton,
   Title,
   TabsContent,
+  WrapOverlay,
 } from './CamperDetails.styled';
 import Features from 'components/Features/Features';
 import Reviews from 'components/Reviews/Reviews';
@@ -41,49 +42,51 @@ const CamperDetails = ({ advert }) => {
 
       <Price>€{advert.price.toFixed(2)}</Price>
 
-      <MainWrap>
-        <ImgList>
-          {advert.gallery.length > 0 &&
-            advert.gallery.map(link => (
-              <li key={link}>
-                <img src={link} alt={advert.name} />
-              </li>
-            ))}
-        </ImgList>
+      <WrapOverlay>
+        <MainWrap>
+          <ImgList>
+            {advert.gallery.length > 0 &&
+              advert.gallery.map(link => (
+                <li key={link}>
+                  <img src={link} alt={advert.name} />
+                </li>
+              ))}
+          </ImgList>
 
-        <Description>{advert.description}</Description>
-      </MainWrap>
+          <Description>{advert.description}</Description>
+        </MainWrap>
 
-      <Tabs>
-        <TabButton
-          type="button"
-          onClick={() => setActiveTab('features')}
-          className={activeTab === 'features' ? 'active' : ''}
-        >
-          Features
-        </TabButton>
-        <TabButton
-          type="button"
-          onClick={() => setActiveTab('reviews')}
-          className={activeTab === 'reviews' ? 'active' : ''}
-        >
-          Reviews
-        </TabButton>
-        <hr />
-      </Tabs>
+        <Tabs>
+          <TabButton
+            type="button"
+            onClick={() => setActiveTab('features')}
+            className={activeTab === 'features' ? 'active' : ''}
+          >
+            Features
+          </TabButton>
+          <TabButton
+            type="button"
+            onClick={() => setActiveTab('reviews')}
+            className={activeTab === 'reviews' ? 'active' : ''}
+          >
+            Reviews
+          </TabButton>
+          <hr />
+        </Tabs>
 
-      {activeTab === 'features' && (
-        <TabsContent>
-          <Features advert={advert} />
-          <BookingForm />
-        </TabsContent>
-      )}
-      {activeTab === 'reviews' && (
-        <TabsContent>
-          <Reviews advert={advert} />
-          <BookingForm />
-        </TabsContent>
-      )}
+        {activeTab === 'features' && (
+          <TabsContent>
+            <Features advert={advert} />
+            <BookingForm />
+          </TabsContent>
+        )}
+        {activeTab === 'reviews' && (
+          <TabsContent>
+            <Reviews advert={advert} />
+            <BookingForm />
+          </TabsContent>
+        )}
+      </WrapOverlay>
     </AdvertsWrap>
   );
 };

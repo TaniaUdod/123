@@ -42,6 +42,7 @@ export const advertsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.adverts = action.payload;
+        // state.adverts = [...state.adverts, ...action.payload];
       })
       .addCase(getAdverts.rejected, handleRejected);
   },
