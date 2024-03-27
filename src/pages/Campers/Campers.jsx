@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-// import { animateScroll } from 'react-scroll';
+import { animateScroll } from 'react-scroll';
 import {
   selectAdverts,
   selectError,
@@ -28,6 +28,8 @@ const Campers = () => {
   const error = useSelector(selectError);
   const adverts = useSelector(selectAdverts);
 
+  const advertsItemRef = useRef(null);
+
   useEffect(() => {
     dispatch(getAdverts({ page: currentPage, limit: 4 }));
   }, [dispatch, currentPage]);
@@ -48,12 +50,12 @@ const Campers = () => {
   const loadMore = () => {
     setCurrentPage(prev => prev + 1);
 
-    // const options = {
-    //   duration: 1500,
-    //   smooth: true,
-    // };
+    const options = {
+      duration: 1500,
+      smooth: true,
+    };
 
-    // animateScroll.scrollTo(0, options);
+    animateScroll.scrollTo(advertsItemRef.current.offsetTop, options);
   };
 
   return (
@@ -66,7 +68,7 @@ const Campers = () => {
       <Catalog>
         <AdvertsList>
           {adverts.map(advert => (
-            <AdvertsItem key={advert._id}>
+            <AdvertsItem key={advert._id} ref={advertsItemRef}>
               <CampersList advert={advert} />
             </AdvertsItem>
           ))}

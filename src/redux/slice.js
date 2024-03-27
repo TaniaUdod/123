@@ -41,8 +41,6 @@ export const advertsSlice = createSlice({
       .addCase(getAdverts.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        // state.adverts = action.payload;
-        // state.adverts = [...state.adverts, ...action.payload];
 
         const newAdverts = action.payload.filter(
           newAdvert =>
@@ -50,7 +48,6 @@ export const advertsSlice = createSlice({
               existingAdvert => existingAdvert._id === newAdvert._id
             )
         );
-
         state.adverts = [...state.adverts, ...newAdverts];
       })
       .addCase(getAdverts.rejected, handleRejected);

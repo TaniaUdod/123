@@ -11,13 +11,13 @@ export const Catalog = styled.div`
   width: 888px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
 `;
 
 export const AdvertsList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-bottom: 50px;
 `;
 
 export const AdvertsItem = styled.li`
