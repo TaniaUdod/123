@@ -16,6 +16,7 @@ import {
 } from './BookingForm.styled';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './styles.css';
 
 const BookingForm = () => {
   const {
@@ -77,7 +78,7 @@ const BookingForm = () => {
               {...field}
               minDate={new Date()}
               calendarStartDay={1}
-              dateFormat="EEEE, d"
+              dateFormat="d MMM yyyy"
               selected={field.value}
               onChange={val => setValue('date', val)}
               placeholderText="Booking date"

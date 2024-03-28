@@ -37,10 +37,6 @@ export const StyledDatePicker = styled(ReactDatePicker)`
   padding: 18px;
   width: 400px;
   position: relative;
-
-  &.react-datepicker-wrapper {
-    width: 100%;
-  }
 `;
 
 export const DatePickerWrapper = styled.div`
