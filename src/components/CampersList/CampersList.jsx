@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFavorites } from '../../redux/selectors';
-import { addFavorite, removeFavorite } from '../../redux/slice';
+import { selectFavorites } from '../../redux/adverts/selectors';
+import { addFavorite, removeFavorite } from '../../redux/adverts/advertsSlice';
 import sprite from '../../images/sprite.svg';
 import Modal from 'components/Modal/Modal';
 import CamperDetails from 'components/CamperDetails/CamperDetails';

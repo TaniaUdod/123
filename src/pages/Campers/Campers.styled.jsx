@@ -48,3 +48,10 @@ export const Button = styled.button`
     border: 1px solid var(--Button, #e44848);
   }
 `;
+
+export const NoResults = styled.p`
+  text-align: center;
+  margin: 30px 0;
+  font-size: 24px;
+  color: #475467;
+`;

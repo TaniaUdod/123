@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { animateScroll } from 'react-scroll';
+import { getAdverts } from '../../redux/adverts/operations';
 import {
   selectAdverts,
   selectError,
   selectIsLoading,
-} from '../../redux/selectors';
-import { getAdverts } from '../../redux/operations';
+} from '../../redux/adverts/selectors';
+import { filterUse } from '../../redux/filter/filterSlice';
+import { selectFilter } from '../../redux/filter/selectors';
+import { getFilteredAdverts } from '../../helpers/getFilteredAdverts';
 import SearchForm from 'components/SearchForm/SearchForm';
 import CampersList from 'components/CampersList/CampersList';
 import Loader from 'components/Loader/Loader';
@@ -16,36 +19,26 @@ import {
   Button,
   Catalog,
   Container,
+  NoResults,
 } from './Campers.styled';
 
 const Campers = () => {
   const dispatch = useDispatch();
-  const [filters, setFilters] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoadMore, setIsLoadMore] = useState(true);
 
+  const filters = useSelector(selectFilter);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-  const adverts = useSelector(selectAdverts);
+  const allAdverts = useSelector(selectAdverts);
 
   const advertsItemRef = useRef(null);
 
   useEffect(() => {
-    dispatch(getAdverts({ page: currentPage, limit: 4 }));
+    dispatch(getAdverts({ page: currentPage, limit: 13 }));
   }, [dispatch, currentPage]);
 
-  useEffect(() => {
-    if (adverts.length < 4 || adverts.length % 4 !== 0) {
-      setIsLoadMore(false);
-    } else {
-      setIsLoadMore(true);
-    }
-  }, [adverts]);
-
-  const handleSearch = selectedFilters => {
-    setFilters(selectedFilters);
-    setCurrentPage(1);
-  };
+  const filteredAdverts = getFilteredAdverts(allAdverts, filters);
 
   const loadMore = () => {
     setCurrentPage(prev => prev + 1);
@@ -58,20 +51,42 @@ const Campers = () => {
     animateScroll.scrollTo(advertsItemRef.current.offsetTop, options);
   };
 
+  useEffect(() => {
+    if (
+      filteredAdverts.length < currentPage * 4 ||
+      (filteredAdverts.length % 4 !== 0 &&
+        currentPage * 4 >= filteredAdverts.length)
+    ) {
+      setIsLoadMore(false);
+    } else {
+      setIsLoadMore(true);
+    }
+  }, [filteredAdverts, currentPage]);
+
+  useEffect(() => {
+    return () => {
+      dispatch(filterUse({ location: '', details: {}, forms: '' }));
+    };
+  }, [dispatch]);
+
   return (
     <Container>
       {isLoading && <Loader />}
       {error && <p>Error: {error}</p>}
 
-      <SearchForm handleSearch={handleSearch} filters={filters} />
+      <SearchForm />
 
       <Catalog>
         <AdvertsList>
-          {adverts.map(advert => (
-            <AdvertsItem key={advert._id} ref={advertsItemRef}>
-              <CampersList advert={advert} />
-            </AdvertsItem>
-          ))}
+          {filteredAdverts.length > 0 ? (
+            filteredAdverts.slice(0, currentPage * 4).map(advert => (
+              <AdvertsItem key={advert._id} ref={advertsItemRef}>
+                <CampersList advert={advert} />
+              </AdvertsItem>
+            ))
+          ) : (
+            <NoResults>Nothing was found for your filter</NoResults>
+          )}
         </AdvertsList>
 
         {isLoadMore && !isLoading && (

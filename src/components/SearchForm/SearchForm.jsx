@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { filterUse } from '../../redux/filter/filterSlice';
 import sprite from '../../images/sprite.svg';
 import {
   Form,
@@ -11,35 +13,32 @@ import {
   SearchButton,
 } from './SearchForm.styled';
 
-const SearchForm = ({ handleSearch, filters: initialFilters }) => {
-  const [filters, setFilters] = useState({
-    location: '',
-    equipment: [],
-    type: '',
-    ...initialFilters,
+const SearchForm = () => {
+  const dispatch = useDispatch();
+
+  const [location, setLocation] = useState('');
+  const [details, setDetails] = useState({
+    airConditioner: false,
+    automatic: false,
+    kitchen: false,
+    TV: false,
+    shower: false,
   });
+  const [forms, setForms] = useState('');
 
-  const [showSuggestions, setShowSuggestions] = useState(false);
-  const [validLocation, setValidLocation] = useState(true);
+  const handleFilterAdverts = event => {
+    event.preventDefault();
+    dispatch(filterUse({ location, details, forms }));
+  };
 
-  const availableLocations = [
-    'Kyiv',
-    'Lviv',
-    'Odesa',
-    'Poltava',
-    'Dnipro',
-    'Kharkiv',
-    'Sumy',
-  ];
-
-  const filtersVehicleEquipment = [
+  const filtersEquipment = [
     {
       value: 'airConditioner',
       icon: 'icon-AC',
       text: 'AC',
     },
     {
-      value: 'transmission',
+      value: 'automatic',
       icon: 'icon-automatic',
       text: 'Automatic',
     },
@@ -49,7 +48,7 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
       text: 'Kitchen',
     },
     {
-      value: 'tv',
+      value: 'TV',
       icon: 'icon-TV',
       text: 'TV',
     },
@@ -62,7 +61,7 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
 
   const filtersType = [
     {
-      value: 'van',
+      value: 'panelTruck',
       icon: 'icon-van',
       text: 'Van',
     },
@@ -78,48 +77,23 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
     },
   ];
 
-  const handleFiltersChange = (filterType, value) => {
-    setFilters(prev => ({ ...prev, [filterType]: value }));
-
-    if (filterType === 'location') {
-      const matchedSuggestions = availableLocations.filter(city =>
-        city.startsWith(value.toLowerCase())
-      );
-      setShowSuggestions(true);
-
-      if (matchedSuggestions.length === 0) {
-        setValidLocation(false);
-      } else {
-        setValidLocation(true);
-      }
-    }
+  const handleLocation = event => {
+    const { value } = event.target;
+    setLocation(value);
   };
 
-  const handleCheckboxChange = event => {
+  const handleCheckbox = event => {
     const { value, checked } = event.target;
-    let updatedEquipment = [...filters.equipment];
-
-    if (checked) {
-      updatedEquipment = [...updatedEquipment, value];
-    } else {
-      updatedEquipment = updatedEquipment.filter(item => item !== value);
-    }
-    setFilters(prev => ({ ...prev, equipment: updatedEquipment }));
+    setDetails({ ...details, [value]: checked });
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    if (!availableLocations.includes(filters.location)) {
-      setValidLocation(false);
-      return;
-    }
-
-    handleSearch(filters);
+  const handleRadio = event => {
+    const { value } = event.target;
+    setForms(value);
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleFilterAdverts}>
       <LocationLabel>
         Location
         <svg>
@@ -127,17 +101,11 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
         </svg>
         <input
           type="text"
+          name="location"
+          value={location}
           placeholder="City"
-          value={filters.location}
-          onChange={e => handleFiltersChange('location', e.target.value)}
-          onBlur={() => setShowSuggestions(false)}
-          required
+          onChange={handleLocation}
         />
-        {showSuggestions && !validLocation && (
-          <span>
-            Please, enter a valid location: {availableLocations.join(', ')}.
-          </span>
-        )}
       </LocationLabel>
 
       <Text>Filters</Text>
@@ -145,14 +113,14 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
       <Title>Vehicle equipment</Title>
       <hr />
       <Wrap>
-        {filtersVehicleEquipment.map(({ value, icon, text }) => (
+        {filtersEquipment.map(({ value, icon, text }) => (
           <WrapContent key={value}>
             <input
               type="checkbox"
-              name="equipment"
+              name={value}
               value={value}
-              checked={filters.equipment.includes(value)}
-              onChange={handleCheckboxChange}
+              checked={details[value]}
+              onChange={handleCheckbox}
             />
             <Filterbutton>
               <svg width="32" height="32" fill="none" stroke="currentColor">
@@ -173,8 +141,8 @@ const SearchForm = ({ handleSearch, filters: initialFilters }) => {
               type="radio"
               name="vehicleType"
               value={value}
-              checked={filters.type === value}
-              onChange={e => handleFiltersChange('type', e.target.value)}
+              checked={forms === value}
+              onChange={handleRadio}
             />
             <Filterbutton>
               <svg width="40" height="28" fill="none" stroke="currentColor">

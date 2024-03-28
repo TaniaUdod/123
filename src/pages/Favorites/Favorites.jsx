@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectFavorites } from '../../redux/selectors';
+import { selectFavorites } from '../../redux/adverts/selectors';
 import CampersList from 'components/CampersList/CampersList';
 import { AdvertsItem, AdvertsList, Message } from './Favorites.styled';
 

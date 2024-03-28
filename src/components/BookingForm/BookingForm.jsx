@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { Controller, useForm } from 'react-hook-form';
 import 'react-datepicker/dist/react-datepicker.css';
-import { bookCamper } from '../../redux/slice';
+import { bookCamper } from '../../redux/adverts/advertsSlice';
 import sprite from '../../images/sprite.svg';
 import {
   Button,
